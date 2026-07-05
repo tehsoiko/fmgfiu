@@ -225,6 +225,8 @@ const VisitCounter = {
 
 // Inizializza
 document.addEventListener('DOMContentLoaded', () => {
-    Cart.init();
+    if (typeof CONFIG !== 'undefined') {
+        Cart.init();
+    }
     VisitCounter.init();
 });

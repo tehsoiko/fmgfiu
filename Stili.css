@@ -391,11 +391,11 @@ textarea.form-input { min-height: 100px; resize: vertical; }
 
 /* CART BADGE */
 .cart-badge { position: relative; }
-.cart-badge[data-count]:not([data-count="0"])::after { 
+.cart-badge[data-count]::after { 
     content: attr(data-count); 
     position: absolute; 
     top: -8px; 
-    right: -8px; 
+    right: -12px; 
     background: var(--danger); 
     color: #fff; 
     font-size: 0.65em; 
@@ -406,6 +406,9 @@ textarea.form-input { min-height: 100px; resize: vertical; }
     display: flex; 
     align-items: center; 
     justify-content: center; 
+}
+.cart-badge[data-count="0"]::after { 
+    opacity: 0.5; 
 }
 
 /* CART NOTIFICATION */

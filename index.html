@@ -237,11 +237,12 @@
             document.getElementById('contactCity').textContent = CONFIG.sito.citta;
         }
         
-        // Countdown - 10 minuti
-        let end = localStorage.getItem('cdEnd');
-        if (!end || parseInt(end) < Date.now()) {
-            end = Date.now() + 10 * 60 * 1000;
-            localStorage.setItem('cdEnd', end);
+        // Countdown - 10 minuti (versione 2 per forzare reset)
+        const CD_VERSION = 'v2';
+        let end = localStorage.getItem('cdEnd_' + CD_VERSION);
+        if (!end) {
+            end = Date.now() + 10 * 60 * 1000; // 10 minuti
+            localStorage.setItem('cdEnd_' + CD_VERSION, end);
         }
         end = parseInt(end);
         
