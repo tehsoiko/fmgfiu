@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
 :root {
     --primary: #dcc266;
     --primary-dark: #c9a227;
@@ -35,7 +37,16 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); font-family: system-ui, -apple-system, sans-serif; color: var(--text); line-height: 1.5; }
+body { 
+    background: var(--bg); 
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+    color: var(--text); 
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
 
 /* NAVBAR */
 .navbar { 
@@ -119,8 +130,8 @@ body { background: var(--bg); font-family: system-ui, -apple-system, sans-serif;
     z-index: 1;
 }
 .hero-text { flex: 1; min-width: 280px; color: #fff; }
-.hero-text h1 { font-size: 2.5em; margin-bottom: 12px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-.hero-text p { font-size: 1.1em; opacity: 0.95; margin-bottom: 24px; line-height: 1.6; }
+.hero-text h1 { font-size: 2.8em; margin-bottom: 16px; letter-spacing: -0.5px; }
+.hero-text p { font-size: 1.15em; opacity: 0.95; margin-bottom: 24px; line-height: 1.7; font-weight: 400; }
 .hero-text .btn { 
     background: #fff; 
     color: var(--primary-dark); 
@@ -229,7 +240,12 @@ body { background: var(--bg); font-family: system-ui, -apple-system, sans-serif;
 .stat-label { font-size: 0.8em; color: var(--muted); margin-top: 4px; }
 
 /* SECTIONS */
-.section-title { font-size: 1.5em; margin-bottom: 24px; text-align: center; }
+.section-title { 
+    font-size: 1.8em; 
+    margin-bottom: 28px; 
+    text-align: center; 
+    letter-spacing: -0.3px;
+}
 .reviews-grid, .features-grid, .catalog-grid, .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 
 .review { 
@@ -252,8 +268,8 @@ body { background: var(--bg); font-family: system-ui, -apple-system, sans-serif;
 .feature { background: var(--card); padding: 24px; border-radius: var(--radius); text-align: center; box-shadow: 0 3px 15px var(--shadow); }
 .feature-icon { width: 48px; height: 48px; margin: 0 auto 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 .feature-icon svg { width: 24px; height: 24px; stroke: #fff; }
-.feature-title { font-size: 1em; margin-bottom: 6px; }
-.feature-desc { font-size: 0.85em; color: var(--muted); }
+.feature-title { font-size: 1.05em; margin-bottom: 6px; font-family: 'Inter', sans-serif; font-weight: 600; }
+.feature-desc { font-size: 0.9em; color: var(--muted); line-height: 1.5; }
 
 /* FAQ */
 .faq { margin: 40px 0; }
@@ -328,9 +344,9 @@ textarea.form-input { min-height: 100px; resize: vertical; }
 .book:hover { transform: translateY(-4px); }
 .book-cover { width: 100%; height: 240px; object-fit: cover; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
 .book-body { padding: 18px; }
-.book-title { font-size: 1em; margin-bottom: 4px; }
-.book-author { font-size: 0.8em; color: var(--muted); margin-bottom: 10px; }
-.book-price { font-size: 1.1em; font-weight: 700; color: var(--success); }
+.book-title { font-size: 1.05em; margin-bottom: 4px; font-weight: 600; }
+.book-author { font-size: 0.85em; color: var(--muted); margin-bottom: 10px; }
+.book-price { font-size: 1.15em; font-weight: 700; color: var(--success); }
 
 /* TEAM */
 .team { background: var(--card); padding: 24px; border-radius: var(--radius); text-align: center; }
