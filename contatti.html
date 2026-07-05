@@ -190,11 +190,12 @@
         });
         
         // Scroll
-        const prog = document.querySelector('.progress'), toTop = document.getElementById('toTop');
+        const prog = document.querySelector('.progress'), toTop = document.getElementById('toTop'), nav = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
             const y = scrollY, max = body.scrollHeight - innerHeight;
             prog.style.width = `${(y/max)*100}%`;
             toTop.classList.toggle('show', y > 300);
+            nav.classList.toggle('scrolled', y > 50);
         });
         toTop.addEventListener('click', () => { const s=scrollY,t0=performance.now(),e=x=>x===1?1:1-Math.pow(2,-10*x),r=t=>{const p=Math.min((t-t0)/1500,1);scrollTo(0,s*(1-e(p)));p<1&&requestAnimationFrame(r)};requestAnimationFrame(r); });
     </script>

@@ -268,11 +268,12 @@
         });
         
         // Scroll
-        const prog = document.querySelector('.progress'), toTop = document.getElementById('toTop');
+        const prog = document.querySelector('.progress'), toTop = document.getElementById('toTop'), nav = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
             const y = window.scrollY, max = document.body.scrollHeight - innerHeight;
             prog.style.width = `${(y/max)*100}%`;
             toTop.classList.toggle('show', y > 300);
+            nav.classList.toggle('scrolled', y > 50);
         });
         toTop.addEventListener('click', () => {
             const start = scrollY, t0 = performance.now();

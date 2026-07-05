@@ -38,7 +38,20 @@ html { scroll-behavior: smooth; }
 body { background: var(--bg); font-family: system-ui, -apple-system, sans-serif; color: var(--text); line-height: 1.5; }
 
 /* NAVBAR */
-.navbar { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 14px 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 15px rgba(0,0,0,0.15); }
+.navbar { 
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+    padding: 14px 24px; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.15); 
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+.navbar.scrolled {
+    opacity: 0.92;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
 .navbar-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .navbar-brand { color: #fff; font-size: 1.2em; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; }
 .navbar-brand svg { width: 24px; height: 24px; }
