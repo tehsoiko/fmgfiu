@@ -90,7 +90,28 @@ h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; 
 .banner.hidden { max-height: 0; padding: 0; opacity: 0; overflow: hidden; }
 .promo-banner { background: linear-gradient(90deg, var(--card), var(--primary)); color: var(--text); }
 .promo-banner .highlight { color: var(--danger); font-weight: 700; }
-.countdown-banner { background: var(--text); color: #fff; }
+.countdown-banner { 
+    background: var(--text); 
+    color: #fff; 
+    position: relative;
+    transform-origin: top center;
+}
+.countdown-banner.shake {
+    animation: shake 0.5s ease-in-out;
+}
+.countdown-banner.fall {
+    animation: guillotine 1s ease-in forwards;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px) rotate(-1deg); }
+    20%, 40%, 60%, 80% { transform: translateX(5px) rotate(1deg); }
+}
+@keyframes guillotine {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; max-height: 200px; }
+    30% { transform: translateY(10px) rotate(8deg); }
+    100% { transform: translateY(300px) rotate(25deg); opacity: 0; max-height: 0; padding: 0; }
+}
 .countdown-banner .timer { display: inline-flex; gap: 12px; margin-top: 10px; }
 .countdown-banner .time-block { background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; min-width: 50px; }
 .countdown-banner .number { font-size: 1.4em; font-weight: 700; color: var(--primary); }

@@ -237,17 +237,39 @@
             document.getElementById('contactCity').textContent = CONFIG.sito.citta;
         }
         
-        // Countdown
-        const end = localStorage.getItem('cdEnd') || (localStorage.setItem('cdEnd', Date.now() + 2*86400000 + 14*3600000 + 35*60000), localStorage.getItem('cdEnd'));
+        // Countdown - 10 minuti
+        let end = localStorage.getItem('cdEnd');
+        if (!end || parseInt(end) < Date.now()) {
+            end = Date.now() + 10 * 60 * 1000;
+            localStorage.setItem('cdEnd', end);
+        }
+        end = parseInt(end);
+        
+        const cdEl = document.getElementById('countdown');
+        const promoEl = document.getElementById('promo');
+        
         const cd = () => {
             const d = end - Date.now();
-            if (d <= 0) { document.getElementById('countdown').classList.add('hidden'); document.getElementById('promo').classList.add('hidden'); return; }
+            if (d <= 0) {
+                clearInterval(cdInterval);
+                // Shake poi fall
+                cdEl.classList.add('shake');
+                setTimeout(() => {
+                    cdEl.classList.remove('shake');
+                    cdEl.classList.add('fall');
+                    setTimeout(() => {
+                        cdEl.style.display = 'none';
+                        promoEl.style.display = 'none';
+                    }, 1000);
+                }, 500);
+                return;
+            }
             document.getElementById('d').textContent = String(Math.floor(d/86400000)).padStart(2,'0');
             document.getElementById('h').textContent = String(Math.floor((d%86400000)/3600000)).padStart(2,'0');
             document.getElementById('m').textContent = String(Math.floor((d%3600000)/60000)).padStart(2,'0');
             document.getElementById('s').textContent = String(Math.floor((d%60000)/1000)).padStart(2,'0');
         };
-        setInterval(cd, 1000); cd();
+        const cdInterval = setInterval(cd, 1000); cd();
         
         // FAQ
         document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
